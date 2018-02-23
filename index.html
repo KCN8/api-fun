@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	 <link rel="stylesheet" href="style.css">
+	<title>API STUFF</title>
+</head>
+<body>
+	<div class="card" style="width: 18rem;">
+		<img class="card-img-top" src="..." alt="Some Image from an API">
+		<div class="card-body">
+			<h5 class="card-title">Some kind of title</h5>
+			<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione a aperiam non iure corrupti, placeat ullam. Fugiat ab consequatur distinctio ea, error adipisci. Quod praesentium quibusdam assumenda fuga alias voluptatem!</p>
+		</div>
+	</div>
+	<script>
+		function load() {
+				fetch("https://omdb-api.now.sh/?s=star%20wars")
+					.then(response => response.json())
+					.then(response => {
+						document.querySelector(".card-title").textContent = response.Search[0].Title
+						document.querySelector(".card-img-top").src = response.Search[0].Poster
+					})
+			}
+	</script>
+</body>
+</html>
